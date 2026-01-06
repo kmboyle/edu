@@ -7,7 +7,7 @@
 let
   theSource = src;
 in
-pkgs.stdenv.mkDerivation rec {
+pkgs.stdenv.mkDerivation {
   pname = "sample-app-cpp";
   version = "1.0.0";
 
