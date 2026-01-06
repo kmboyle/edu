@@ -7,8 +7,8 @@ let
     let
       # Download from GitHub:
       defaultNix = builtins.fetchurl {
-        url = "https://raw.githubusercontent.com/kmboyle/edu/refs/heads/main/sample-app-cpp/default.nix";
-        sha256 = "0f8ms7askpvdgvd0jzhdx2flgij94xajgqy4wdjf36dd71c8k30f";
+        url = "https://raw.githubusercontent.com/kmboyle/edu/refs/heads/main/cpp/nix-pkg-cpp/sample-app-cpp/default.nix";
+        sha256 = "sha256-nlI2hVePH56zO1BeTKNlMIXhM3R970BT70nn+rd7+bo=";
       };
       # Uncomment for local testing:
       #   defaultNix = builtins.path {
