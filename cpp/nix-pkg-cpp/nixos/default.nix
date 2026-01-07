@@ -21,7 +21,7 @@ let
         owner = "kmboyle";
         repo = "edu";
         rev = "main"; # REPLACE WITH A TAG!
-        sha256 = "yFaWRusBfRWs7HwveAXxRs6YcmeIY7MON0az/oATp7k=";
+        sha256 = "PRZbsgqBtdaEdNvwp+7u2AzwkaByNOKuiin2bhJhlSA=";
       };
       subdir = "cpp/nix-pkg-cpp/sample-app-cpp/src";
 
