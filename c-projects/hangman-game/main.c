@@ -7,7 +7,9 @@
 #define MAX_ATTEMPTS 6
 
 const char *word_list[] = {
-    "programming", "hangman", "computer", "science", "challenge"
+    "programming", "hangman", "computer", "science", "challenge", "developer",
+    "function", "variable", "pointer", "array", "string", "compile", "debug",
+    "algorithm", "data", "structure", "loop", "condition", "syntax", "library", "header"
 };
 const int word_count = sizeof(word_list) / sizeof(word_list[0]);
 void display_word(const char *word, const int *guessed) {
