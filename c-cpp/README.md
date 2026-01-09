@@ -3,7 +3,7 @@
 Template:
 <https://github.com/the-nix-way/dev-templates/tree/main/c-cpp>
 
-At the root of your repository, Direnv can start by allowing the recently-created .envrc file to execute:
+At the root of your repository (or directory), Direnv can start by allowing the recently-created .envrc file to execute:
 
 ```bash
 direnv allow .
