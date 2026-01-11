@@ -4,7 +4,7 @@
   inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0"; # stable Nixpkgs
 
   outputs =
-    { self, ... }@inputs:
+    { ... }@inputs:
 
     let
       supportedSystems = [
