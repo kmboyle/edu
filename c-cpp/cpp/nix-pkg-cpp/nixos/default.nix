@@ -7,7 +7,7 @@ let
     let
       # Download from GitHub:
       defaultNix = builtins.fetchurl {
-        url = "https://github.com/kmboyle/edu/blob/main/cpp/nix-pkg-cpp/sample-app-cpp/default.nix";
+        url = "https://github.com/kmboyle/edu/blob/main/c-cpp/cpp/nix-pkg-cpp/sample-app-cpp/default.nix";
         sha256 = "0f8ms7askpvdgvd0jzhdx2flgij94xajgqy4wdjf36dd71c8k30f";
       };
       # Uncomment for local testing:
@@ -23,7 +23,7 @@ let
         rev = "main"; # REPLACE WITH A TAG!
         sha256 = "PRZbsgqBtdaEdNvwp+7u2AzwkaByNOKuiin2bhJhlSA=";
       };
-      subdir = "cpp/nix-pkg-cpp/sample-app-cpp/src";
+      subdir = "c-cpp/cpp/nix-pkg-cpp/sample-app-cpp/src";
 
       # Uncomment for local testing:
       #   src = builtins.path {
