@@ -20,8 +20,8 @@ let
       src = pkgs.fetchFromGitHub {
         owner = "kmboyle";
         repo = "edu";
-        rev = "main"; # REPLACE WITH A TAG!
-        sha256 = "PRZbsgqBtdaEdNvwp+7u2AzwkaByNOKuiin2bhJhlSA=";
+        rev = "v1.0.0";
+        sha256 = "aw2VYVkmVceEQJ0qmslbhvlTasrIKAt1yg+KlKF28L4=";
       };
       subdir = "c-cpp/cpp/nix-pkg-cpp/sample-app-cpp/src";
 
