@@ -1,2 +1,2 @@
 # Linux System Programming in C
-<https://youtu.be/p-vqh0KBtHM?si=ji9zOSCW75z96lXW>
+<https://www.youtube.com/watch?v=p-vqh0KBtHM&list=PLysdvSvCcUhbrU3HhGhfQVbhjnN9GXCq4>
