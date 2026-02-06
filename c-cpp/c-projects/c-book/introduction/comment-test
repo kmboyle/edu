@@ -1,2 +1,6 @@
 // This is a comment
 This should be the only visible line
+/* This is another test
+* this line should not be visibl
+*/
+Only this should appear as well.
