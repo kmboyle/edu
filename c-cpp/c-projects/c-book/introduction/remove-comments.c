@@ -1,28 +1,34 @@
+/* Ex. 1.23 */
 #include <stdio.h>
 #define MAXLINE 10000
+#define TRUE (1 == 1)
+#define FALSE !TRUE
 
-int get_line(char s[], int maxline);
+// This is a test comment
+
+int get_line(char s[], int maxline); // This is another test comment.
 void remove_comments(char line[], char removed_comments[]);
 
 int main() {
+  /**
+   * This is a multiline
+   * block
+   * comment.
+   */
+
   char line[MAXLINE];
   char removed_comments[MAXLINE];
 
-  while ((get_line(line, MAXLINE)) > 0) {
-    remove_comments(line, removed_comments);
-    printf("%s", removed_comments);
-  }
+  get_line(line, MAXLINE);
 }
 
 /* get_line: read a line into s, return length */
 int get_line(char s[], int lim) {
-  int c, i;
+  int c;
+  int i = 0;
 
-  for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-    s[i] = c;
-  if (c == '\n') {
-    s[i] = c;
-    ++i;
+  while (i < lim - 1 && (c = getchar()) != EOF) {
+    s[i++] = c;
   }
   s[i] = '\0';
   return i;
@@ -30,27 +36,24 @@ int get_line(char s[], int lim) {
 
 void remove_comments(char line[], char removed_comments[]) {
 
-  int i, j;
-  int column = 0;
-  int inside = 0;
-  for (i = 0, j = 0; line[i] != '\0'; ++i, ++j) {
-    // removed_comments[j] = line[i];
-
-    if (removed_comments[j] == '\n') {
-      column = 0;
-    }
-    column++;
-
-    if (line[j] == '/' && line[j + 1] == '*') {
-      inside = j + 1;
-      while (line[++inside] != '*' && getchar() != EOF) {
-        j++;
-        continue;
+  int i = 0;
+  int j = 0;
+  int line_comment = FALSE;
+  int block_commet = FALSE;
+  int in_quote = FALSE;
+  while (line[i] != '\0') {
+    if (!block_commet) {
+      if (!in_quote && line[i] == '"') {
+        in_quote = TRUE;
+      } else if (in_quote && line[i] == '"') {
+        in_quote = FALSE;
       }
-      removed_comments[j] = line[i];
     }
-    if (line[j] != '/' && line[j + 1] != '/') {
-      removed_comments[j] = line[i];
+
+    if (!in_quote) {
+      if (line[i] == '/' && line[i + 1] == '*' && !line_comment) {
+        block_commet = TRUE;
+      }
     }
   }
   removed_comments[j] = '\0';
