@@ -20,6 +20,8 @@ int main() {
   char removed_comments[MAXLINE];
 
   get_line(line, MAXLINE);
+  remove_comments(line, removed_comments);
+  printf("%s", removed_comments);
 }
 
 /* get_line: read a line into s, return length */
@@ -39,10 +41,10 @@ void remove_comments(char line[], char removed_comments[]) {
   int i = 0;
   int j = 0;
   int line_comment = FALSE;
-  int block_commet = FALSE;
+  int block_comment = FALSE;
   int in_quote = FALSE;
   while (line[i] != '\0') {
-    if (!block_commet) {
+    if (!block_comment) {
       if (!in_quote && line[i] == '"') {
         in_quote = TRUE;
       } else if (in_quote && line[i] == '"') {
@@ -52,9 +54,31 @@ void remove_comments(char line[], char removed_comments[]) {
 
     if (!in_quote) {
       if (line[i] == '/' && line[i + 1] == '*' && !line_comment) {
-        block_commet = TRUE;
+        block_comment = TRUE;
       }
+
+      if (line[i] == '*' && line[i + 1] == '/') {
+        block_comment = FALSE;
+        i += 2;
+      }
+
+      if (line[i] == '/' && line[i + 1] == '/') {
+        line_comment = TRUE;
+      }
+
+      if (line[i] == '\n') {
+        line_comment = FALSE;
+      }
+
+      if (line_comment || block_comment) {
+        ++i;
+      } else if (!line_comment || !block_comment) {
+        removed_comments[j++] = line[i++];
+      }
+    } else {
+      removed_comments[j++] = line[i++];
     }
   }
   removed_comments[j] = '\0';
 }
+// NOTE: run ./remove-comments < remove-comments.c
