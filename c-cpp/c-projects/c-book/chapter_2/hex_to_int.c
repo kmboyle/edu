@@ -23,10 +23,10 @@ int htoi(char s[]) {
   return n;
 }
 int main() {
-  printf("convert FF to decimal: %d\n", htoi("FF"));       // 255
-  printf("convert 1F7 to decimal: %d\n", htoi("1F7"));     // 503
-  printf("convert E7 to decimal: %d\n", htoi("E7"));       // 231
-  printf("convert 1000 to decimal: %d\n", htoi("1000"));   // 4096
-  printf("convert 0xA7B to decimal: %d\n", htoi("0xA7B")); // 2683
-  printf("convert 0xa7b to decimal: %d\n", htoi("0xA7B")); // 2683
+  printf("convert FF to int: %d\n", htoi("FF"));       // 255
+  printf("convert 1F7 to int: %d\n", htoi("1F7"));     // 503
+  printf("convert E7 to int: %d\n", htoi("E7"));       // 231
+  printf("convert 1000 to int: %d\n", htoi("1000"));   // 4096
+  printf("convert 0xA7B to int: %d\n", htoi("0xA7B")); // 2683
+  printf("convert 0xa7b to int: %d\n", htoi("0xA7B")); // 2683
 }
