@@ -28,4 +28,5 @@ int main() {
   printf("convert E7 to decimal: %d\n", htoi("E7"));       // 231
   printf("convert 1000 to decimal: %d\n", htoi("1000"));   // 4096
   printf("convert 0xA7B to decimal: %d\n", htoi("0xA7B")); // 2683
+  printf("convert 0xa7b to decimal: %d\n", htoi("0xA7B")); // 2683
 }
