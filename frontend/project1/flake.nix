@@ -26,7 +26,12 @@
             typescript-language-server
           ];
 
-          shellHook = "echo \"Entering Angular project shell with pnpm\"; export PATH=\"$PWD/node_modules/.bin:$PATH\"; export NODE_PATH=\"$PWD/node_modules\"";
+          shellHook = ''
+            echo "Entering Angular project shell with pnpm"
+            export PATH="$PWD/node_modules/.bin:$PATH"
+            export NODE_PATH="$PWD/node_modules\";
+            echo $PATH
+          '';
         };
       }
     );
