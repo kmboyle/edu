@@ -3,16 +3,13 @@
 // Include the common styles for Angular Material
 @include mat.core();
 
-// Define a theme
-$primary: mat.define-palette(mat.$indigo-palette);
-$accent: mat.define-palette(mat.$pink-palette);
-$warn: mat.define-palette(mat.$red-palette);
+$myapp-theme-primary: mat.m2-define-palette(mat.$m2-indigo-palette, A400, A100, A700);
+$myapp-theme-accent: mat.m2-define-palette(mat.$m2-indigo-palette);
+$myapp-theme-warn: mat.m2-define-palette(mat.$m2-red-palette);
 
-$theme: mat.define-light-theme(($primary: $primary,
-  $accent: $accent,
-  $warn: $warn));
+$myapp-theme: mat.m2-define-light-theme((color: (primary: $myapp-theme-primary,
+                        accent: $myapp-theme-accent,
+                        warn: $myapp-theme-warn,
+                  )));
 
-// Include the theme styles for all components
-@include mat.all-component-themes($theme);
-
-/* You can add global styles to this file, and also import other style files */
+@include mat.all-component-themes($myapp-theme);

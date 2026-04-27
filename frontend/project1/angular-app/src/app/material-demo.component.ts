@@ -6,6 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
+import { TypographySelectorComponent } from "./typography-selector.component";
 
 @Component({
   selector: 'app-material-demo',
@@ -19,8 +21,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatSliderModule,
     MatToolbarModule,
-    MatIconModule
-  ]
+    MatIconModule,
+    FormsModule,
+    TypographySelectorComponent
+]
 })
 export class MaterialDemoComponent {
   sliderValue = 50;

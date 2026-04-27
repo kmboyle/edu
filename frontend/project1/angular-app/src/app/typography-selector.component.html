@@ -1,0 +1,9 @@
+<div>
+  <label for="typography">Select Typography:</label>
+  <select id="typography" [(ngModel)]="selectedTypography" (change)="updateTypography()">
+
+    @for (typography of typographies; track typography) {
+    <option [value]="typography">{{ typography }}</option>
+    }
+  </select>
+</div>
