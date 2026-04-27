@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+  <span>{{ title }}</span>
+</mat-toolbar>
+
+<mat-card class="demo-card">
+  <mat-card-title>Demo Components</mat-card-title>
+  <mat-card-content>
+    <p>Here's a demonstration of some Angular Material components:</p>
+    
+    <div class="demo-container">
+      <mat-slider 
+        [min]="0" 
+        [max]="100" 
+        [(value)]="sliderValue"
+        aria-label="slider example">
+        <input matSliderThumb [value]="sliderValue">
+      </mat-slider>
+      <p>Slider value: {{ sliderValue }}</p>
+    </div>
+
+    <div class="demo-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your name</mat-label>
+        <input matInput [(ngModel)]="inputValue" placeholder="Name">
+      </mat-form-field>
+      <p>Input value: {{ inputValue }}</p>
+    </div>
+
+    <div class="button-container">
+      <button mat-raised-button color="primary">Primary Button</button>
+      <button mat-raised-button color="accent">Accent Button</button>
+      <button mat-raised-button color="warn">Warn Button</button>
+      <button mat-stroked-button>Stroked Button</button>
+      <button mat-flat-button>Flat Button</button>
+    </div>
+  </mat-card-content>
+</mat-card>

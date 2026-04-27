@@ -24,6 +24,7 @@
             pnpm
             typescript
             typescript-language-server
+            pi-coding-agent
           ];
 
           shellHook = ''
