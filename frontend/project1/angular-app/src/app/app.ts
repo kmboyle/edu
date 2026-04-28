@@ -15,10 +15,13 @@ export class App {
   protected readonly currentTheme = this.themeService.theme;
 
   constructor() {
+    // Apply theme when component initializes
+    this.applyTheme();
+
+    // Watch for theme changes and re-apply theme
     effect(() => {
-      if (this.themeService.theme()) {
-        this.applyTheme();
-      }
+      // This effect will run whenever the theme signal changes
+      this.applyTheme();
     });
   }
 

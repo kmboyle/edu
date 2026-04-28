@@ -1,39 +1,28 @@
+// styles.scss
 @use '@angular/material' as mat;
+@include mat.core();
 
-html {
-      color-scheme: light dark;
-      @include mat.theme((color: mat.$violet-palette,
-                  typography: Roboto,
-                  density: 0));
-}
+// Define a modern M3 theme
+$my-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$blue-palette,
+    tertiary: mat.$rose-palette,
+  )
+));
 
+$my-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$blue-palette,
+    tertiary: mat.$rose-palette,
+  )
+));
+
+// Apply the theme
 body {
-      // background: var(--mat-sys-surface);
-      color: var(--mat-sys-on-surface);
-}
-
-// Theme classes for light and dark modes
-.light-theme {
-      --background-color: #ffffff;
-      --text-color: #000000;
-      --surface-color: var(--mat-sys-surface);
-      --on-surface-color: var(--mat-sys-on-surface);
-}
-
-.dark-theme {
-      --background-color: #121212;
-      --text-color: #ffffff;
-      --surface-color: var(--mat-sys-surface);
-      --on-surface-color: var(--mat-sys-on-surface);
-}
-
-// Apply theme to body based on current theme
-body.light-theme {
-      background: var(--surface-color);
-      color: var(--on-surface-color);
-}
-
-body.dark-theme {
-      background: var(--surface-color);
-      color: var(--on-surface-color);
+  @include mat.all-component-themes($my-light-theme);
+    &.dark-theme {
+    @include mat.all-component-themes($my-dark-theme);
+  }
 }
