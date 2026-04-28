@@ -1,1 +1,8 @@
+<div class="theme-toggle-container">
+  <button 
+    (click)="toggleTheme()" 
+    [attr.aria-label]="currentTheme() === 'light' ? 'Switch to dark theme' : 'Switch to light theme'">
+    {{ currentTheme() === 'light' ? '🌙' : '☀️' }}
+  </button>
+</div>
 <app-material-demo />

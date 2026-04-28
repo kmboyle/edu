@@ -5,7 +5,6 @@
 <mat-card class="demo-card">
   <mat-card-title>Demo Components</mat-card-title>
   <mat-card-content>
-    <app-typography-selector />
     <p>Here's a demonstration of some Angular Material components:</p>
 
     <div class="demo-container">
@@ -24,7 +23,7 @@
     </div>
 
     <div class="button-container">
-      <button mat-raised-button color="primary">Primary Button</button>
+      <button mat-raised-button color="primary" (click)="openTypographyDialog()">Select Typography</button>
       <button mat-raised-button color="accent">Accent Button</button>
       <button mat-raised-button color="warn">Warn Button</button>
       <button mat-stroked-button>Stroked Button</button>

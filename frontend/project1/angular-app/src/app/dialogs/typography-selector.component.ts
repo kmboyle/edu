@@ -19,11 +19,12 @@ interface TypographySelectorData {
   standalone: true,
   imports: [MatFormFieldModule, MatSelectModule, MatButtonModule],
   templateUrl: './typography-selector.component.html',
-  styleUrl: './typography-selector.component.scss',
+
+  styleUrls: ['./typography-selector.component.scss'],
 })
 export class TypographySelectorComponent {
   // inject() enables tree-shaking and avoids empty constructor boilerplate
-  private readonly dialogRef = inject(MatDialogRef<TypographySelectorComponent>);
+  private readonly dialogRef = inject(MatDialogRef);
   private readonly data = inject<TypographySelectorData>(MAT_DIALOG_DATA);
 
   // Predefined, well-known font families — safe by definition (no user-supplied CSS injection)
@@ -35,7 +36,7 @@ export class TypographySelectorComponent {
   ] as const;
 
   selectedTypography = signal<string>(
-    this.data.typography?.fontFamily ?? this.typographies[0].value
+    this.data?.typography?.fontFamily ?? this.typographies[0].value
   );
 
   apply(): void {
