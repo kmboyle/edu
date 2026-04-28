@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { TypographySelectorService } from './services/typography-selector.service';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-material-demo',
@@ -24,7 +25,8 @@ import { TypographySelectorService } from './services/typography-selector.servic
     MatToolbarModule,
     MatIconModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatSidenavModule
   ]
 })
 export class MaterialDemoComponent {
