@@ -1,9 +1,12 @@
-<div>
-  <label for="typography">Select Typography:</label>
-  <select id="typography" [(ngModel)]="selectedTypography" (change)="updateTypography()">
+<div class="typography-selector">
+  <mat-form-field appearance="outline">
+    <mat-label>Select Typography</mat-label>
+    <mat-select [value]="selectedTypography()" (selectionChange)="selectedTypography.set($event.value)">
+      @for (typo of typographies; track typo.value) {
+      <mat-option [value]="typo.value">{{ typo.label }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 
-    @for (typography of typographies; track typography) {
-    <option [value]="typography">{{ typography }}</option>
-    }
-  </select>
+  <button mat-button (click)="apply()">Apply</button>
 </div>

@@ -1,25 +1,45 @@
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ThemePalette } from '@angular/material/core';
+import { Component, inject, signal } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+
+// @angular/material/theming was removed in v15+. Theming is now CSS-based.
+// Define a lightweight local interface for the typography payload.
+interface TypographyConfig {
+  fontFamily: string;
+}
+
+interface TypographySelectorData {
+  typography?: TypographyConfig;
+}
 
 @Component({
   selector: 'app-typography-selector',
+  standalone: true,
+  imports: [MatFormFieldModule, MatSelectModule, MatButtonModule],
   templateUrl: './typography-selector.component.html',
-  styleUrls: ['./typography-selector.component.scss'],
-  imports: [FormsModule]
+  styleUrl: './typography-selector.component.scss',
 })
 export class TypographySelectorComponent {
-  selectedTypography: string = 'default';
-  typographies: string[] = ['default', 'sans-serif', 'serif', 'monospace'];
+  // inject() enables tree-shaking and avoids empty constructor boilerplate
+  private readonly dialogRef = inject(MatDialogRef<TypographySelectorComponent>);
+  private readonly data = inject<TypographySelectorData>(MAT_DIALOG_DATA);
 
-  constructor() { }
-  updateTypography() {
-    // Logic to apply selected typography
-    const theme = this.matTheme;
-    (theme.typography as any).fontFamily = this.selectedTypography;
-  }
+  // Predefined, well-known font families — safe by definition (no user-supplied CSS injection)
+  readonly typographies = [
+    { label: 'Default', value: '"Roboto", "Helvetica", "Arial", sans-serif' },
+    { label: 'Sans-Serif', value: '"Helvetica Neue", Helvetica, Arial, sans-serif' },
+    { label: 'Serif', value: '"Georgia", "Times New Roman", serif' },
+    { label: 'Monospace', value: '"Courier New", Courier, monospace' },
+  ] as const;
 
-  get matTheme() {
-    return { typography: {} };
+  selectedTypography = signal<string>(
+    this.data.typography?.fontFamily ?? this.typographies[0].value
+  );
+
+  apply(): void {
+    const fontFamily = this.selectedTypography();
+    this.dialogRef.close({ fontFamily });
   }
 }

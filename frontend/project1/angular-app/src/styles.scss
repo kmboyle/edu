@@ -3,13 +3,45 @@
 // Include the common styles for Angular Material
 @include mat.core();
 
-$myapp-theme-primary: mat.m2-define-palette(mat.$m2-indigo-palette, A400, A100, A700);
-$myapp-theme-accent: mat.m2-define-palette(mat.$m2-indigo-palette);
-$myapp-theme-warn: mat.m2-define-palette(mat.$m2-red-palette);
+// ==========================================================================
+// Theme Definition
+// ==========================================================================
+// Angular Material v17+ uses a unified theme system with define-theme().
+// Typography is now configured via CSS custom properties (--mat-typography-*)
+// rather than Sass config maps. Palette values are passed directly without
+// wrapping them in mat.define-palette().
+$_app-theme: mat.define-theme((color: (primary: mat.$indigo-palette,
+                        tertiary: mat.$indigo-palette,
+                        warn: mat.$red-palette,
+                  ),
+            ));
 
-$myapp-theme: mat.m2-define-light-theme((color: (primary: $myapp-theme-primary,
-                        accent: $myapp-theme-accent,
-                        warn: $myapp-theme-warn,
-                  )));
+// ==========================================================================
+// Document-Level Typography & Theme Application
+// ==========================================================================
+// CRITICAL: Set typography CSS custom properties on :root so all Material
+// components inherit the correct font family, sizes, weights, and letter-spacing.
+// Then apply the theme to all Material components.
+:root {
+      // Typography is now configured via CSS custom properties in v17+
+      --mat-typography-font-family: 'Roboto, sans-serif';
+      --mat-typography-headline-large-font-size: 2rem;
+      --mat-typography-body-large-font-size: 1rem;
+}
 
-@include mat.all-component-themes($myapp-theme);
+html {
+      // Apply color, typography, density, and mode styles to all components
+      @include mat.all-component-themes($_app-theme);
+}
+
+@media (prefers-color-scheme: dark) {
+      :root {
+            $_app-dark-theme: mat.define-theme((color: (primary: mat.$indigo-palette,
+                                    tertiary: mat.$indigo-palette,
+                                    warn: mat.$red-palette,
+                                    theme-type: dark,
+                              ),
+                        ));
+            @include mat.all-component-colors($_app-dark-theme);
+      }
+}
