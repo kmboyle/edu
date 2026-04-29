@@ -27,12 +27,16 @@ export class TypographySelectorComponent {
   private readonly dialogRef = inject(MatDialogRef);
   private readonly data = inject<TypographySelectorData>(MAT_DIALOG_DATA);
 
-  // Predefined, well-known font families — safe by definition (no user-supplied CSS injection)
   readonly typographies = [
-    { label: 'Default', value: '"Roboto", "Helvetica", "Arial", sans-serif' },
-    { label: 'Sans-Serif', value: '"Helvetica Neue", Helvetica, Arial, sans-serif' },
-    { label: 'Serif', value: '"Georgia", "Times New Roman", serif' },
-    { label: 'Monospace', value: '"Courier New", Courier, monospace' },
+    { label: 'Roboto (default)', value: '"Roboto", "Helvetica", "Arial", sans-serif' },
+    { label: 'Inter', value: '"Inter", "Helvetica", "Arial", sans-serif' },
+    { label: 'Open Sans', value: '"Open Sans", "Helvetica", "Arial", sans-serif' },
+    { label: 'Poppins', value: '"Poppins", "Helvetica", "Arial", sans-serif' },
+    { label: 'Lato', value: '"Lato", "Helvetica", "Arial", sans-serif' },
+    { label: 'Nunito', value: '"Nunito", "Helvetica", "Arial", sans-serif' },
+    { label: 'Montserrat', value: '"Montserrat", "Helvetica", "Arial", sans-serif' },
+    { label: 'Merriweather (serif)', value: '"Merriweather", "Georgia", serif' },
+    { label: 'Source Code Pro (mono)', value: '"Source Code Pro", "Courier New", monospace' },
   ] as const;
 
   selectedTypography = signal<string>(
