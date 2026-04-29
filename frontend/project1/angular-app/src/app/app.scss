@@ -32,6 +32,11 @@
     transition: all 0.3s ease;
 }
 
+.material-demo {
+    height: 100vh;
+    display: flex;
+}
+
 .theme-toggle-container button:hover {
     background: var(--text-color);
     color: var(--background-color);
