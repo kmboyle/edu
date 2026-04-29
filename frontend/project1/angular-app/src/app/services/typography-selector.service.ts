@@ -9,8 +9,13 @@ import { tap } from 'rxjs/operators';
 })
 export class TypographySelectorService {
   readonly fontFamily = signal<string>('"Roboto", "Helvetica", "Arial", sans-serif');
+  readonly fontSize = signal<number>(16);
 
   constructor(private readonly dialog: MatDialog) { }
+
+  setFontSize(size: number): void {
+    this.fontSize.set(size);
+  }
 
   openTypographySelector(): Observable<{ fontFamily: string } | undefined> {
     return this.dialog.open(TypographySelectorComponent, {

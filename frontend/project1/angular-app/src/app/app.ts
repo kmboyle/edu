@@ -29,6 +29,10 @@ export class App {
     effect(() => {
       document.body.style.fontFamily = this.typographySelectorService.fontFamily();
     });
+
+    effect(() => {
+      document.body.style.fontSize = `${this.typographySelectorService.fontSize()}px`;
+    });
   }
 
   private applyTheme() {
