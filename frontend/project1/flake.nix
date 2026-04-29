@@ -20,7 +20,6 @@
       {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            git
             nodejs
             pnpm
             typescript
