@@ -30,17 +30,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
   ]
 })
 export class MaterialDemoComponent {
+  sliderValue = 50;
   inputValue = '';
   title = 'Material Components Demo';
 
   private readonly typographySelectorService = inject(TypographySelectorService);
   private readonly dialog = inject(MatDialog);
-
-  protected readonly fontSize = this.typographySelectorService.fontSize;
-
-  protected setFontSize(size: number): void {
-    this.typographySelectorService.setFontSize(size);
-  }
 
   openTypographyDialog(): void {
     this.typographySelectorService.openTypographySelector().subscribe(result => {

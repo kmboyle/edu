@@ -17,6 +17,9 @@ pnpm install
 
 # Start the development server
 ng serve
+
+# Or if ng in not installed
+npx ng serve
 ```
 
 ### Option 2: Using direnv (Automated environment)
